@@ -1,24 +1,14 @@
-# 依赖
-node_modules/
-
-# Next.js 构建产物
-.next/
-out/
-build/
-dist/
-
-# 环境变量（CLAUDE.md：不要提交到 Git）
-.env
-.env*.local
-
-# SQLite 数据库（CLAUDE.md：不要提交到 Git）
-prisma/dev.db
-prisma/dev.db-journal
-*.db-journal
-
-# Claude Code 本机配置（仅本地生效，不应共享）
+# AI 工具本地配置
 .claude/settings.local.json
+.cursor/
+.aider*
+.continue/
+.cody/
 
-# 杂项
-*.log
-.DS_Store
+# 密钥和凭证
+*.pem
+*.key
+credentials.json
+.npmrc
+.aws/
+.ssh/
