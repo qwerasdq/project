@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const d=new Date\\(2026,8,20\\); console.log\\(d.getDay\\(\\), ['周日','周一','周二','周三','周四','周五','周六'][d.getDay\\(\\)]\\)\")",
+      "Bash(gh auth *)"
+    ]
+  }
+}

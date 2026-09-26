@@ -1,0 +1,140 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   设计令牌（明色为默认，暗色跟随系统）
+   色值取自 dataviz skill 的参考色板，明暗两套均已通过校验脚本
+   ============================================================ */
+:root {
+  color-scheme: light;
+
+  /* 平面与表面 */
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+
+  /* 文字 */
+  --ink: #0b0b0b;
+  --ink-secondary: #52514e;
+  --ink-muted: #898781;
+
+  /* 线条 */
+  --hairline: #e1e0d9;
+  --rule: #c3c2b7;
+  --ring: rgb(11 11 11 / 0.1);
+
+  /* 状态色（固定，不随主题换步，永不当作系列色） */
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+
+  /* 语义文字色：涨跌 */
+  --delta-up: #006300;
+  --delta-down: #d03b3b;
+
+  /* 预算进度条：轨道取蓝色阶靠近表面的步，填充取顺序蓝 */
+  --meter-track: #b7d3f6;
+  --meter-fill: #2a78d6;
+
+  /* 分类槽位 1-8，固定顺序，按实体分配，永不循环生成 */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #4a3aa7;
+  --series-8: #e34948;
+
+  /* 折叠项「其他」的中性色 */
+  --series-other: #c3c2b7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+
+    --ink: #ffffff;
+    --ink-secondary: #c3c2b7;
+    --ink-muted: #898781;
+
+    --hairline: #2c2c2a;
+    --rule: #383835;
+    --ring: rgb(255 255 255 / 0.1);
+
+    --delta-up: #0ca30c;
+    --delta-down: #d03b3b;
+
+    --meter-track: #184f95;
+    --meter-fill: #3987e5;
+
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    --series-6: #008300;
+    --series-7: #9085e9;
+    --series-8: #e66767;
+
+    --series-other: #383835;
+  }
+}
+
+/* 把令牌接入 Tailwind，生成 bg-surface / text-ink 这类工具类 */
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-muted: var(--ink-muted);
+  --color-hairline: var(--hairline);
+  --color-rule: var(--rule);
+
+  --color-good: var(--status-good);
+  --color-warning: var(--status-warning);
+  --color-serious: var(--status-serious);
+  --color-critical: var(--status-critical);
+
+  --color-delta-up: var(--delta-up);
+  --color-delta-down: var(--delta-down);
+
+  --color-series-1: var(--series-1);
+  --color-series-2: var(--series-2);
+  --color-series-3: var(--series-3);
+  --color-series-4: var(--series-4);
+  --color-series-5: var(--series-5);
+  --color-series-6: var(--series-6);
+  --color-series-7: var(--series-7);
+  --color-series-8: var(--series-8);
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+/* ============================================================
+   基础样式
+   ============================================================ */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: var(--page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 数字列需要竖向对齐时才用等宽数字 */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 触屏点击不显示灰色高亮块 */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
